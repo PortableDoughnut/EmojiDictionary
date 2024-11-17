@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		63F08E392CEA7B190033E340 /* Emoji.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F08E382CEA7B120033E340 /* Emoji.swift */; };
+		63F08E3B2CEA7CC30033E340 /* EmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F08E3A2CEA7CC30033E340 /* EmojiTableViewController.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		63F08E202CEA774F0033E340 /* EmojiDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		63F08E382CEA7B120033E340 /* Emoji.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emoji.swift; sourceTree = "<group>"; };
+		63F08E3A2CEA7CC30033E340 /* EmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -47,6 +54,8 @@
 			children = (
 				63F08E222CEA774F0033E340 /* EmojiDictionary */,
 				63F08E212CEA774F0033E340 /* Products */,
+				63F08E382CEA7B120033E340 /* Emoji.swift */,
+				63F08E3A2CEA7CC30033E340 /* EmojiTableViewController.swift */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F08E3B2CEA7CC30033E340 /* EmojiTableViewController.swift in Sources */,
+				63F08E392CEA7B190033E340 /* Emoji.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
