@@ -8,6 +8,7 @@
 import UIKit
 
 class EmojiTableViewController: UITableViewController {
+	var emojis: [Emoji] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,6 +17,10 @@ class EmojiTableViewController: UITableViewController {
 		
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 44.0
+		
+		emojis = Emoji.loadFromFile() ?? Emoji.sampleEmojis()
+		
+		Emoji.saveToFile(emojis: emojis)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -65,15 +70,15 @@ class EmojiTableViewController: UITableViewController {
         if editingStyle == .delete {
 			emojis.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+			Emoji.saveToFile(emojis: emojis)
+        }
     }
 
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
 		let movedEmoji: Emoji = emojis.remove(at: fromIndexPath.row)
 		emojis.insert(movedEmoji, at: to.row)
+		Emoji.saveToFile(emojis: emojis)
     }
 	
 	@IBSegueAction func addEditEmoji(_ coder: NSCoder, sender: Any?) -> AddEditEmojiTableViewController? {
@@ -94,10 +99,12 @@ class EmojiTableViewController: UITableViewController {
 		if let indexPath = tableView.indexPathForSelectedRow {
 			emojis[indexPath.row] = emoji
 			tableView.reloadRows(at: [indexPath], with: .none)
+			Emoji.saveToFile(emojis: emojis)
 		} else {
 			let newIndexPath: IndexPath = .init(row: emojis.count, section: 0)
 			emojis.append(emoji)
 			tableView.insertRows(at: [newIndexPath], with: .automatic)
+			Emoji.saveToFile(emojis: emojis)
 		}
 	}
 	
